@@ -1,12 +1,14 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import { NavBar } from "./components/navbar";
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <h2>Desafío clase 2</h2>
+      <ItemListContainer/>
+      <h2>Desafío clase 4</h2>
     </div>
   );
 }
