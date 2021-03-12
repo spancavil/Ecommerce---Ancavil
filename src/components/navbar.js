@@ -1,11 +1,16 @@
 import React from "react";
 import CartWidget from "./CartWidget"
+import logo from "../img/logo.jpg";
 
 export const NavBar = () => {  //Declaración de una constante en JSX (un extensión del lenguaje JavaScript) con una función flecha
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <a class="navbar-brand">
+          <img src={logo} width="50" height="50" class="d-inline-block" alt=""/>
+          El gatito azul
+        </a>
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="#">
             Home
@@ -21,7 +26,6 @@ export const NavBar = () => {  //Declaración de una constante en JSX (un extens
           </a>
         </div>
       </div>
-      <a class="navbar-brand" href="#">El gatito azul</a>
       <CartWidget />
       <button
         class="navbar-toggler"
