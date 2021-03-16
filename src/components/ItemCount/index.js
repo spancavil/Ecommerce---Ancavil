@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import modelo1 from "../../img/modelo3020.jpeg";
-import modelo2 from "../../img/modelo3030.jpeg";
-import modelo3 from "../../img/modelo3050.jpeg";
-import modelo4 from "../../img/modelo3030dos.jpeg";
-import modelo5 from "../../img/modelo3050dos.jpeg";
+//import modelo2 from "../../img/modelo3030.jpeg";
+//import modelo3 from "../../img/modelo3050.jpeg";
+//import modelo4 from "../../img/modelo3030dos.jpeg";
+//import modelo5 from "../../img/modelo3050dos.jpeg";
 
 const ItemCount = (props) =>{
         
