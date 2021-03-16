@@ -1,9 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import modelo1 from "../../img/modelo3020.jpeg";
-//import modelo2 from "../../img/modelo3030.jpeg";
-//import modelo3 from "../../img/modelo3050.jpeg";
-//import modelo4 from "../../img/modelo3030dos.jpeg";
-//import modelo5 from "../../img/modelo3050dos.jpeg";
 
 const ItemCount = (props) =>{
         
@@ -11,7 +6,7 @@ const ItemCount = (props) =>{
         const [countSuma, setCountSuma] = useState(false);
 
         useEffect (()=>{
-            //setCount(parseInt(props.initial[0]));
+            //setCount(parseInt(props.initial[0])); NO SE PUEDE, PORQUE RECIEN SE MONTA. NO ALCANZA NINGUNA PROPIEDAD.
             console.log("App montada!");
             return;
         }, []); //Ese effect sólo se ejecutará una vez montado el componente y nada más
@@ -34,7 +29,7 @@ const ItemCount = (props) =>{
         //Sólo agregará el addOn (funcion del padre) en caso que el count sea mayor a cero, sino no.
         return(
                 <div class="card" style={{width: "40rem"}}>
-                        <img src= {modelo1} class="card-img-top" alt="..."/>
+                        <img src={props.src} class="card-img-top" alt="..."/>
                         <div class="card-body">
                             <h5 class="card-title">{props.description}</h5>
                             <div class="d-flex justify-content-around">
