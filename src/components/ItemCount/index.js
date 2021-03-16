@@ -11,7 +11,7 @@ const ItemCount = (props) =>{
         const [countSuma, setCountSuma] = useState(false);
 
         useEffect (()=>{
-            setCount(parseInt(props.initial));
+            //setCount(parseInt(props.initial[0]));
             console.log("App montada!");
             return;
         }, []); //Ese effect sólo se ejecutará una vez montado el componente y nada más
@@ -38,15 +38,15 @@ const ItemCount = (props) =>{
                         <div class="card-body">
                             <h5 class="card-title">{props.description}</h5>
                             <div class="d-flex justify-content-around">
-                                <a class="btn btn btn-outline-primary btn-sm" onClick={removeHandle}>-</a>
+                                <button class="btn btn btn-outline-primary btn-sm" onClick={removeHandle}>-</button>
                                 <h5 class="card-text">{count}</h5>
-                                <a class="btn btn btn-outline-primary btn-sm" onClick={addHandle}>+</a>
+                                <button class="btn btn btn-outline-primary btn-sm" onClick={addHandle}>+</button>
                             </div>
                             <p class="card-text"></p>
-                            <a class="btn btn btn-outline-primary btn-sm" onClick={
+                            <button class="btn btn btn-outline-primary btn-sm" onClick={
                                 (count>0) ? props.onAdd : null}>
                                 Agregar al carrito
-                            </a>
+                            </button>
                         </div>
                 </div>    
         )

@@ -7,21 +7,21 @@ export const NavBar = () => {  //Declaración de una constante en JSX (un extens
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <a class="navbar-brand">
+        <a class="navbar-brand" href= "/#">
           <img src={logo} width="50" height="50" class="d-inline-block" alt=""/>
           El gatito azul
         </a>
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">
+          <a class="nav-item nav-link active" href='/#'>
             Home
           </a>
-          <a class="nav-item nav-link" href="#">
+          <a class="nav-item nav-link" href='/#'>
             Modelos
           </a>
-          <a class="nav-item nav-link" href="#">
+          <a class="nav-item nav-link" href='/#'>
             Nosotros
           </a>
-          <a class="nav-item nav-link" href="#">
+          <a class="nav-item nav-link" href='/#'>
             Contacto
           </a>
         </div>
