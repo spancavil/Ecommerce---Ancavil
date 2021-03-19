@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <NavBar />
       <ItemListContainer/>
-      <h2>Desafío clase 6</h2>
+      <h2>Desafío clase 7</h2>
     </div>
   );
 }
