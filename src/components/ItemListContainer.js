@@ -20,7 +20,7 @@ const ItemListContainer = () => { //Hacemos un ItemListContainer utilizando una 
                     {id: 3, stock: 7, src: "/img/modelo3030dos.jpeg", initial: 0, description: "Modelo 3"},
                     {id: 4, stock: 3, src: "/img/modelo3050.jpeg", initial: 0, description: "Modelo 4"},
                     {id: 5, stock: 2, src: "/img/modelo3050dos.jpeg", initial: 0, description: "Modelo 5"},
-                    {id: 6, stock: 4, src: "/img/modeloMini.jpg", initial:0, description: "Modelo 6"}
+                    {id: 6, stock: 4, src: "/img/modeloMini.jpeg", initial:0, description: "Modelo 6"}
                     ]
                 )
             },2000);
