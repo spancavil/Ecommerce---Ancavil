@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
-import ConsumerApi from './ConsumerApi';
+//import ConsumerApi from './ConsumerApi';
 import ItemDetailContainer from './ItemDetailContainer';
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import { NavBar } from './navbar';
 
 const ItemListContainer = () => { //Hacemos un ItemListContainer utilizando una función flecha
 
@@ -38,12 +40,32 @@ const ItemListContainer = () => { //Hacemos un ItemListContainer utilizando una 
     console.log (items[0]);
     return( //Una vez que se re-renderiza la página los items setteados se llaman y son colocados en las propiedades del parent
         <div>
+        <BrowserRouter>
+            <NavBar></NavBar>
             <p>(Container de componentes)</p>
-            <ItemList items = {items}></ItemList>
-            <hr className ="my-5"></hr>
-            <ConsumerApi>PokeApi y passwordGenerator para el Wifi</ConsumerApi>
-            <hr className ="my-5"></hr>
-            <ItemDetailContainer items={items[0]}></ItemDetailContainer>
+            <Switch>
+                <Route exact path = '/'>
+                    <ItemList items = {items}></ItemList>
+                </Route>
+            </Switch>
+            <Switch>
+                <Route path ='/categories/:catId'>
+                    <ItemList items = {items}></ItemList>
+                </Route>
+            </Switch>
+            
+            <Switch>
+                <Route path ='/detail'>
+                    <ItemDetailContainer items={items[0]}></ItemDetailContainer>
+                </Route>
+            </Switch>
+
+            <Switch>
+                <Route path ='/contacto'>
+                    <p>Whatsapp, Facebook e Instagram: </p>
+                </Route>
+            </Switch>
+        </BrowserRouter>
         </div>
     );
 

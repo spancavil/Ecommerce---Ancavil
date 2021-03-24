@@ -1,7 +1,11 @@
 import React from 'react';
+import { useParams } from 'react-router';
 import ItemCount from '../ItemCount';
 
 const ItemList = ({items}) => {
+
+    const {catId} = useParams ()
+    console.log(catId); //Recibe simple o double, según la selección del NavBar
 
     return (
         <div  className="row row-cols-1 row-cols-md-2 g-4">
@@ -16,6 +20,6 @@ const ItemList = ({items}) => {
                 )}
         </div>
         )
-}
 
+}
 export default ItemList;

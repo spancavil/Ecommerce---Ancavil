@@ -1,29 +1,30 @@
 import React from "react";
 import CartWidget from "./CartWidget"
 import logo from "../img/logo.jpg";
+import { NavLink } from "react-router-dom";
 
 export const NavBar = () => {  //Declaración de una constante en JSX (un extensión del lenguaje JavaScript) con una función flecha
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
 
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <a className="navbar-brand" href= "/#">
+        <NavLink to="/"className="navbar-brand"> 
           <img src={logo} width="50" height="50" className="d-inline-block" alt=""/>
           El gatito azul
-        </a>
+        </NavLink>  
         <div className="navbar-nav">
-          <a className="nav-item nav-link active" href='/#'>
+          <NavLink to="/" activeClassName="current" className="nav-item nav-link"> 
             Home
-          </a>
-          <a className="nav-item nav-link" href='/#'>
-            Modelos
-          </a>
-          <a className="nav-item nav-link" href='/#'>
-            Nosotros
-          </a>
-          <a className="nav-item nav-link" href='/#'>
-            Contacto
-          </a>
+          </NavLink>
+          <NavLink to="/categories/simple" activeClassName="current" className="nav-item nav-link"> 
+            Modelo Simple
+          </NavLink>
+          <NavLink to = "/categories/double" activeClassName="current" className="nav-item nav-link">
+            Modelo Doble
+          </NavLink>
+          <NavLink to = "/contacto" activeClassName="current" className="nav-item nav-link">
+          Contacto
+          </NavLink>
         </div>
       </div>
       <CartWidget />

@@ -16,7 +16,7 @@ const ItemDetailContainer = (item) => {
         </div>)
     }
 
-    return( //Solo renderiza si hay datos, sino devuelve null.
+    return( //Solo renderiza si hay datos, sino devuelve null
         <div>
          {(item.items===undefined)? null : render() }
         </div>
