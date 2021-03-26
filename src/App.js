@@ -6,7 +6,6 @@ function App() {
   return (
     <div className="App">
       <ItemListContainer/>
-      <h2>Preentrega</h2>
     </div>
   );
 }
