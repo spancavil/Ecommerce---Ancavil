@@ -11,12 +11,12 @@ const ItemCount = (props) =>{
 
         useEffect (()=>{
             //setCount(parseInt(props.initial[0])); NO SE PUEDE, PORQUE RECIEN SE MONTA. NO ALCANZA NINGUNA PROPIEDAD.
-            console.log("App montada!");
+            //console.log("App montada!");
             return;
         }, []); //Ese effect sólo se ejecutará una vez montado el componente y nada más
 
         useEffect(() =>{
-            console.log ("Hiciste click en +")
+            //console.log ("Hiciste click en +")
         }, [countSuma]); //Este effect se aplica en cada mount y además cuando se hace click en + (para practicar los effects)
 
         const removeHandle = () =>{

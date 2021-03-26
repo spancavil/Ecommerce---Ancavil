@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
 //import ConsumerApi from './ConsumerApi';
-import ItemDetailContainer from './ItemDetailContainer';
+import Item from './Item';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import { NavBar } from './navbar';
+import Presentacion from './Presentacion';
+import Contacto from './Contacto';
 
 const ItemListContainer = () => { //Hacemos un ItemListContainer utilizando una función flecha
 
@@ -17,12 +19,12 @@ const ItemListContainer = () => { //Hacemos un ItemListContainer utilizando una 
             setTimeout(()=>{ //El timeout simula un servidor
             //Primero va el setTimeout y luego el accept.
                 accept([ //Devuelve un array literal de objetos.
-                    {id: 1, stock:4, src:"/img/modelo3020.jpeg", initial:0, description:"Modelo 1", precio: 2200},
-                    {id: 2, stock: 6, src: "/img/modelo3030.jpeg", initial: 0, description: "Modelo 2"},
-                    {id: 3, stock: 7, src: "/img/modelo3030dos.jpeg", initial: 0, description: "Modelo 3"},
-                    {id: 4, stock: 3, src: "/img/modelo3050.jpeg", initial: 0, description: "Modelo 4"},
-                    {id: 5, stock: 2, src: "/img/modelo3050dos.jpeg", initial: 0, description: "Modelo 5"},
-                    {id: 6, stock: 4, src: "/img/modeloMini.jpeg", initial:0, description: "Modelo 6"}
+                    {id: 1, stock:4, src:"/img/modelo3020.jpeg", initial:0, description:"Modelo 1", precio: 2200, categoria:"simple"},
+                    {id: 2, stock: 6, src: "/img/modelo3030.jpeg", initial: 0, description: "Modelo 2", precio: 5800, categoria:"double"},
+                    {id: 3, stock: 7, src: "/img/modelo3030dos.jpeg", initial: 0, description: "Modelo 3", precio: 5800, categoria: "double"},
+                    {id: 4, stock: 3, src: "/img/modelo3050.jpeg", initial: 0, description: "Modelo 4", precio: 7900, categoria: "double"},
+                    {id: 5, stock: 2, src: "/img/modelo3050dos.jpeg", initial: 0, description: "Modelo 5", precio: 7900, categoria:"double"},
+                    {id: 6, stock: 4, src: "/img/modeloMini.jpeg", initial:0, description: "Modelo 6", precio: 1700, categoria:"simple"}
                     ]
                 )
             },2000);
@@ -37,32 +39,34 @@ const ItemListContainer = () => { //Hacemos un ItemListContainer utilizando una 
         })
     }, []);
     
-    console.log (items[0]);
     return( //Una vez que se re-renderiza la página los items setteados se llaman y son colocados en las propiedades del parent
         <div>
         <BrowserRouter>
             <NavBar></NavBar>
-            <p>(Container de componentes)</p>
             <Switch>
                 <Route exact path = '/'>
                     <ItemList items = {items}></ItemList>
                 </Route>
             </Switch>
             <Switch>
-                <Route path ='/categories/:catId'>
+                <Route path ='/categories/:categoriaProducto'>
                     <ItemList items = {items}></ItemList>
                 </Route>
             </Switch>
             
             <Switch>
-                <Route path ='/detail'>
-                    <ItemDetailContainer items={items[0]}></ItemDetailContainer>
+                <Route path ='/detail/:productoId'>
+                    <Item items={items}></Item>
                 </Route>
             </Switch>
-
+            <Switch>
+                <Route path='/nosotros'>
+                    <Presentacion></Presentacion>
+                </Route>
+            </Switch>
             <Switch>
                 <Route path ='/contacto'>
-                    <p>Whatsapp, Facebook e Instagram: </p>
+                    <Contacto></Contacto>
                 </Route>
             </Switch>
         </BrowserRouter>
