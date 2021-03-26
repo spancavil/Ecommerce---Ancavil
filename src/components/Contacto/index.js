@@ -14,6 +14,9 @@ const Contacto = () => {
                 <i className="bi bi-whatsapp m-4" style={{fontSize:"1.5rem",color:"green"}}> WhatsApp</i>
             </a>
             </div>
+            <div className="row justify-content-center">
+                <h6 style={{fontStyle: "italic", fontSize:"1.2rem", marginTop:"40px"}}>O mandanos un e-mail a:    elgatitoazul.rascadores@hotmail.com</h6>
+            </div>
         </div>
     )
 }
