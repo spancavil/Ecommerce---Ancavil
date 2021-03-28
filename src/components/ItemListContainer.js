@@ -3,9 +3,10 @@ import ItemList from './ItemList';
 //import ConsumerApi from './ConsumerApi';
 import Item from './Item';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import { NavBar } from './navbar';
+import { NavBar } from '../NavBar';
 import Presentacion from './Presentacion';
 import Contacto from './Contacto';
+import Loading from './Loading';
 
 const ItemListContainer = () => { //Hacemos un ItemListContainer utilizando una función flecha
 
@@ -39,7 +40,10 @@ const ItemListContainer = () => { //Hacemos un ItemListContainer utilizando una 
         })
     }, []);
     
-    return( //Una vez que se re-renderiza la página los items setteados se llaman y son colocados en las propiedades del parent
+    console.log (items);
+
+    const render = () => {
+        return( //Una vez que se re-renderiza la página los items setteados se llaman y son colocados en las propiedades del parent
         <div>
         <BrowserRouter>
             <NavBar></NavBar>
@@ -71,7 +75,13 @@ const ItemListContainer = () => { //Hacemos un ItemListContainer utilizando una 
             </Switch>
         </BrowserRouter>
         </div>
-    );
+        );}
+    
+    return (
+        <>
+        {items.length ===0 ? <Loading></Loading>: render()}
+        </>
+    )
 
 };
 

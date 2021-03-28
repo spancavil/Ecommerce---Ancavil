@@ -1,7 +1,8 @@
 import React from "react";
-import CartWidget from "./CartWidget"
+import CartWidget from "../components/CartWidget"
 import logo from "../img/logo.jpg";
 import { NavLink } from "react-router-dom";
+import "./styles.css"
 
 export const NavBar = () => {  //Declaración de una constante en JSX (un extensión del lenguaje JavaScript) con una función flecha
   return (
@@ -44,7 +45,7 @@ export const NavBar = () => {  //Declaración de una constante en JSX (un extens
       </button>
       
       <NavLink to="/"className="navbar-brand"> 
-          <img src={logo} width="50" height="50" className="d-inline-block" alt=""/>
+          <img src={logo} width="50" height="50" className="d-inline-block" alt="" id="imagen"/>
           El gatito azul
       </NavLink>
 

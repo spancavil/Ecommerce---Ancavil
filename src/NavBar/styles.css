@@ -1,0 +1,13 @@
+.nav-item {
+    font-family: 'Lato', sans-serif;
+    font-size: large;
+}
+
+#imagen{
+    padding: 5px;
+}
+
+.navbar-brand{
+    font-family: 'Courgette', cursive;
+    font-size: larger;
+}
