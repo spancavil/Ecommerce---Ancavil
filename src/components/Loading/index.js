@@ -2,7 +2,7 @@ import React from 'react';
 
 const Loading = () =>{
     return (
-        <div className="spinner-border text-danger"
+        <div className="spinner-border text-danger align-middle"
         role="status"
         style={{width: "5rem", height: "5rem", marginTop: "8rem"}}
         >

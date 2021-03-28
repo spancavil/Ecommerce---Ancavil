@@ -44,3 +44,13 @@ body {
 .card{
   font-family: 'Merriweather', serif;;
 }
+
+.carditas{
+  transition: transform .7s;
+}
+
+.carditas:hover{
+  -ms-transform: scale(1.12); /* IE 9 */
+  -webkit-transform: scale(1.12); /* Safari 3-8 */
+  transform: scale(1.12); 
+}
