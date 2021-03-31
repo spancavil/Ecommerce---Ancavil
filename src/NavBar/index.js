@@ -10,30 +10,23 @@ export const NavBar = () => {  //Declaración de una constante en JSX (un extens
       
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
+
           <NavLink to="/" activeClassName="current" className="nav-item nav-link"> 
             Modelos
           </NavLink>
 
-          {/*<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-          </li>*/}
-
           <NavLink to="/categories/simple" activeClassName="current" className="nav-item nav-link"> 
             Modelo Simple
           </NavLink>
+
           <NavLink to = "/categories/double" activeClassName="current" className="nav-item nav-link">
             Modelo Doble
           </NavLink>
+
           <NavLink to="/nosotros" activeClassName="current" className="nav-item nav-link">
             Nosotros
           </NavLink>
+          
           <NavLink to = "/contacto" activeClassName="current" className="nav-item nav-link">
           Contacto
           </NavLink>
