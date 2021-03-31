@@ -5,8 +5,10 @@ const ItemCount = (props) =>{
         const [count, setCount] = useState(parseInt(props.initial));
         const [countSuma, setCountSuma] = useState(false);
 
-        const onAdd = () => {
-            alert ("Producto agregado al carrito!");
+        console.log(count);
+
+        const addHandler = () => {
+            props.onAdd(count)
         }
 
         useEffect (()=>{
@@ -39,10 +41,14 @@ const ItemCount = (props) =>{
                     <button className="btn btn btn-outline-primary btn-sm" onClick={addHandle}>+</button>
                 </div>
                 <p className="card-text"></p>
-                <button className="btn btn btn-outline-primary btn-sm" onClick={
-                (count>0) ? onAdd : null}>
-                Agregar al carrito
-                </button>
+
+                {count >0 ? 
+                    <button className="btn btn btn-outline-primary btn-sm" onClick={addHandler}>
+                        Agregar al carrito
+                    </button> :
+                    null
+                }
+                
             </div>    
         )
     }
