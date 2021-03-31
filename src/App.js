@@ -40,6 +40,12 @@ function App() {
                     <Contacto></Contacto>
                 </Route>
             </Switch>
+
+            <Switch>
+                <Route path ='/cart'>
+                    <p className="p-5">En construcción ... </p>
+                </Route>
+            </Switch>
             
         </BrowserRouter>
     </div>
