@@ -6,6 +6,7 @@ import {NavBar} from './NavBar';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Presentacion from './components/Presentacion';
 import Contacto from './components/Contacto';
+import Testimonios from './components/Testimonios';
 
 function App() {
   return (
@@ -38,6 +39,12 @@ function App() {
             <Switch>
                 <Route path ='/contacto'>
                     <Contacto></Contacto>
+                </Route>
+            </Switch>
+
+            <Switch>
+                <Route path = '/testimonios'>
+                    <Testimonios></Testimonios>
                 </Route>
             </Switch>
 
