@@ -6,7 +6,7 @@ import {NavBar} from './NavBar';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Presentacion from './components/Presentacion';
 import Contacto from './components/Contacto';
-import Testimonios from './components/Testimonios';
+import GatitosFelices from './components/GatitosFelices';
 
 function App() {
   return (
@@ -43,8 +43,8 @@ function App() {
             </Switch>
 
             <Switch>
-                <Route path = '/testimonios'>
-                    <Testimonios></Testimonios>
+                <Route path = '/gatitosfelices'>
+                    <GatitosFelices></GatitosFelices>
                 </Route>
             </Switch>
 

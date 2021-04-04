@@ -27,8 +27,8 @@ export const NavBar = () => {  //Declaración de una constante en JSX (un extens
             Nosotros
           </NavLink>
 
-          <NavLink to="/testimonios" activeClassName="current" className="nav-item nav-link">
-            Testimonios
+          <NavLink to="/gatitosfelices" activeClassName="current" className="nav-item nav-link">
+            Gatitos felices
           </NavLink>
           
           <NavLink to = "/contacto" activeClassName="current" className="nav-item nav-link">
