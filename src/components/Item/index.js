@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 const Item = ({item}) => {
         return (
-            <div className="card carditas"  style={{width: "28rem"}}>
+            <div className="card carditas text-center"  style={{width: "28rem"}}>
                 <NavLink to={`/detail/${item.id}`}>
                     <img src={item.src} className="card-img-top" alt="..."/>
                 </NavLink>

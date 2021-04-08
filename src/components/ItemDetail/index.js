@@ -1,20 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react';
 import ItemCount from '../ItemCount';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {CartContext} from '../../context/cartContext'
 
 const ItemDetail = ({item}) => {
     
     const [count, setCount] = useState(0);
+    const {addItem} = useContext(CartContext); //Usamos la función addItem y el cart del contexto global generado en /context/cartContext
 
     const addHandler = (contador)=>{
-        console.log('se agrego un item', contador)
+        //console.log('se agrego un item', contador)
+        addItem(item,contador); //Le pasamos item, y contador a la función addItem del contexto global  
         setCount(contador)
     }
     
-    console.log(count);
+    //console.log(count);
     return (
 
-        <div className="card card-detail" >
+        <div className="card card-detail text-center" >
                 <div className="card-title pt-5"><h2>Detalle</h2></div>
                 <img src={item.src} className="card-img-top" alt="..."/>
                 

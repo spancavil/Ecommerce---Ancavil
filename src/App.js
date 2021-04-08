@@ -7,11 +7,13 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Presentacion from './components/Presentacion';
 import Contacto from './components/Contacto';
 import GatitosFelices from './components/GatitosFelices';
+import {CartProvider} from './context/cartContext'; //Antes del browser usamos el Provider, que actúa como panel general.
+import Cart from './components/Cart';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
+    <CartProvider>
+        <BrowserRouter>
             <NavBar></NavBar>
             <Switch>
                 <Route exact path = '/'>
@@ -50,12 +52,12 @@ function App() {
 
             <Switch>
                 <Route path ='/cart'>
-                    <p className="p-5">En construcción ... </p>
+                    <Cart></Cart>
                 </Route>
             </Switch>
             
-        </BrowserRouter>
-    </div>
+            </BrowserRouter>
+    </CartProvider>
   );
 }
 

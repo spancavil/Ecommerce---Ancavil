@@ -5,8 +5,6 @@ const ItemCount = (props) =>{
         const [count, setCount] = useState(parseInt(props.initial));
         const [countSuma, setCountSuma] = useState(false);
 
-        console.log(count);
-
         const addHandler = () => {
             props.onAdd(count)
         }
