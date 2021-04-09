@@ -4,7 +4,7 @@ const Contacto = () => {
     return(
         <div className = "container">
 
-        <div className="row row-cols-1">
+        <div className="row row-cols-1 text-center">
             <div className="col-12 my-3">
             <a href="https://www.facebook.com/Rascadores-El-Gatito-azul-110299214466391/" target="_blank" rel="noopener noreferrer">
                 <i className="bi bi-facebook m-4" style={{fontSize:"1.75rem"}}> Facebook</i>
