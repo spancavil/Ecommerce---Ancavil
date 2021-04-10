@@ -28,9 +28,9 @@ const ItemDetail = ({item}) => {
                     <ItemCount stock ={item.stock} initial = {item.initial} onAdd={addHandler}></ItemCount>
                         :
                         <>
-                        <h5 className="card-title py-2">Cantidad: {count}</h5>
+                        <h5 className="card-title py-2">Cantidad agregada: {count}</h5>
                         <Link to='/cart'>
-                            <button className='btn btn btn-outline-primary btn-sm'>Terminar mi compra</button>
+                            <button className='btn btn btn-outline-danger'>Ir al carrito</button>
                         </Link> 
                         </>
                     }

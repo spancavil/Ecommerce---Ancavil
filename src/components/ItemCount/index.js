@@ -33,15 +33,15 @@ const ItemCount = (props) =>{
         //Sólo agregará el addOn (funcion del padre) en caso que el count sea mayor a cero, sino no.
         return(
             <div>
-                <div className="d-flex justify-content-around">
-                    <button className="btn btn btn-outline-primary btn-sm" onClick={removeHandle}>-</button>
-                    <h5 className="card-text">{count}</h5>
-                    <button className="btn btn btn-outline-primary btn-sm" onClick={addHandle}>+</button>
+                <div className="d-flex justify-content-center">
+                    <button className="btn btn btn-outline-danger btn-sm mx-3" onClick={removeHandle}>-</button>
+                    <h5 className="card-text mx-3">{count}</h5>
+                    <button className="btn btn btn-outline-danger btn-sm mx-3" onClick={addHandle}>+</button>
                 </div>
                 <p className="card-text"></p>
 
                 {count >0 ? 
-                    <button className="btn btn btn-outline-primary btn-sm" onClick={addHandler}>
+                    <button className="btn btn btn-outline-danger btn-sm" onClick={addHandler}>
                         Agregar al carrito
                     </button> :
                     null
