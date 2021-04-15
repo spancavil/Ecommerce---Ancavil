@@ -1,9 +1,11 @@
 //import logo from './logo.svg';
 import './App.css';
-import ItemListContainer from './components/ItemListContainer';
+//import ItemListContainer from './components/ItemListContainer';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {NavBar} from './NavBar';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemDetailContainerFB from './components/ItemDetailContainerFB'
+import ItemListContainerFB from './components/ItemListContainerFB';
+//import ItemDetailContainer from './components/ItemDetailContainer';
 import Presentacion from './components/Presentacion';
 import Contacto from './components/Contacto';
 import GatitosFelices from './components/GatitosFelices';
@@ -17,18 +19,18 @@ function App() {
             <NavBar></NavBar>
             <Switch>
                 <Route exact path = '/'>
-                    <ItemListContainer></ItemListContainer>
+                    <ItemListContainerFB></ItemListContainerFB>
                 </Route>
             </Switch>
             <Switch>
                 <Route path ='/categories/:categoriaProducto'>
-                    <ItemListContainer></ItemListContainer>
+                    <ItemListContainerFB></ItemListContainerFB>
                 </Route>
             </Switch>
             
             <Switch>
-                <Route path ='/detail/:productoId'>
-                    <ItemDetailContainer></ItemDetailContainer>
+                <Route path ='/detail/:itemId'>
+                    <ItemDetailContainerFB></ItemDetailContainerFB>
                 </Route>
             </Switch>
 

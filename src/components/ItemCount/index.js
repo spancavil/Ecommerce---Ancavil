@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 const ItemCount = (props) =>{
         
-        const [count, setCount] = useState(parseInt(props.initial));
+        const [count, setCount] = useState(0);
         const [countSuma, setCountSuma] = useState(false);
 
         const addHandler = () => {

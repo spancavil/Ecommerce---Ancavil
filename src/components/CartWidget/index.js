@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 export default function CartWidget() {
 
     const {cantidadTotal} = useContext(CartContext);
-    console.log(cantidadTotal)
+    //console.log(cantidadTotal)
     const CarritoVacio = () => {
         return(
         <i className="fas fa-shopping-cart"></i>
