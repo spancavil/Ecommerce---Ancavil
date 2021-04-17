@@ -1,13 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import {CartContext} from '../../context/cartContext';
 import { NavLink } from "react-router-dom";
 import "./styles.css"
+
+import ModalForm from '../ModalForm';
+
 
 const Cart = () => {
 
     const {cart, removeItem} = useContext(CartContext);
 
-    console.table(cart);
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
     
     const renderCarritoVacio = () => {
         return (
@@ -73,6 +83,13 @@ const Cart = () => {
                                 Total: $<b>{calcularTotal()}.-</b>
                             </strong>
                         </h3>
+
+                        <button className = "btn btn-outline-danger" onClick={handleClickOpen}>
+                        Generar Pedido
+                        </button>
+                        {/*El modal sólo se abrirá cuando se haga click en Open Form*/}
+                        <ModalForm open = {open} handleClose = {handleClose} cart = {cart} total ={calcularTotal()}></ModalForm>
+                       
                         </div>
                     </div>
                 </div>

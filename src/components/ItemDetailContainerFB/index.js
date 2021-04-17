@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
         //console.log(itemId);
         getItems(itemId) //Es una promesa por eso despues tiene un then
         .then((res)=>{
-            console.log("Existe??", res.exists);
+            //console.log("Existe??", res.exists);
             if (res.exists){
                 setItem(res.data())
             }

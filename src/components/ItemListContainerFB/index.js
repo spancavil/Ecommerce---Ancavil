@@ -15,7 +15,7 @@ const ItemListContainerFB = () => {
     const getItemFilter= (categoriaProducto) => { //Filtramos items según la categoría
         const db = getFirestore();
         const itemsCollection = db.collection('Items');
-        console.log("Filtrado.")
+        //console.log("Filtrado.")
         return itemsCollection
                         .where('categoria', '==', categoriaProducto)
                         .get();
@@ -24,12 +24,11 @@ const ItemListContainerFB = () => {
     const getItem = () => { //Si no hay categoría, traemos toda la db
         const db = getFirestore();
         const itemsCollection = db.collection('Items');
-        console.log ("No Filter.");
+        //console.log ("No Filter.");
         return itemsCollection.get();
     }
 
     const setItemsFn = (response) => {
-        console.log("Cantidad de items traidos: ", response.size);
             if (response.size>0){
                 const itemsMapped = response.docs.map(doc => { //Lo trae desordenado al array
                     return {id:doc.id,  ...doc.data()}
