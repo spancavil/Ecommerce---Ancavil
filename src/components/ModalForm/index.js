@@ -12,6 +12,7 @@ import firebase from 'firebase/app';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
+import Slide from '@material-ui/core/Slide';
 
 const useStyles = makeStyles((theme) => ({
     backdrop: {
@@ -21,10 +22,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ModalForm = ({open, handleClose, cart, total}) => {
-    
-    const [loading, setLoading] = useState(false)
+
+    const [form, setForm] = useState (true); 
+    const [loading, setLoading] = useState(false);
+    const [dialogMensaje, setdialogMensaje] = useState(false);
+    const [orderId, setOrderId] = useState();
+
     const classes = useStyles();
 
+    /*-----------------------
+     Consumo de libreria emailjs para envío de emails (notificación a la empresa)
+    -----------------------*/
     const emailJS = (ordenMailJS) => {
         emailjs.send('service_230byqi', 'template_id40f8f', ordenMailJS, 'user_FbqXQoN5uTXwCJvFBd3qm')
                 .then((result) => {
@@ -33,13 +41,15 @@ const ModalForm = ({open, handleClose, cart, total}) => {
                     console.log("Error en el envío de emailJS: ", error.text);
                 }).finally(()=>{
                     setLoading(false);
-                    handleClose();
+                    setdialogMensaje(true); //Genera el dialog de success al usuario
                 })
-        }
+    }
+
 
     const generarOrden = () => {
 
         setLoading(true); //Generamos pantalla de carga
+        setForm(false);   //Ocultamos el form
 
         //Captura de datos
         let comprador = document.querySelector('#nombreApellido').value
@@ -77,20 +87,59 @@ const ModalForm = ({open, handleClose, cart, total}) => {
         const orders = db.collection('orders');
 
         orders.add(newOrderFireBase).then(({id})=>{
-            console.log("Se agrego el item con id:", id, " a la base de datos."); // SUCCESS
+            console.log("Se agrego la orden con id:", id, " a la base de datos."); // SUCCESS
+            setOrderId(id); //Seteamos un state con el valor del id de order.
         }).catch (err => {
             console.log("Hubo un error: ", err); //ERROR
         }).finally(()=>{
-            emailJS(ordenMailJS);
+            emailJS(ordenMailJS); 
         })
         
     }
+
+    /*-----------------------
+    Apertura secuencial, primero el form, luego el loader y luego el dialogUserSuccess 
+    -----------------------*/
 
     const loader = () => {
         return(
         <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
         <   CircularProgress color="inherit" />
         </Backdrop>)
+    }
+
+    const Transition = React.forwardRef(function Transition(props, ref) {
+        return <Slide direction="up" ref={ref} {...props} />;
+    });
+
+    const handleCloseDialog = () => {
+        setdialogMensaje(false);
+        handleClose();
+    }
+
+    const dialogUserSuccess = () => {
+        return(
+            <Dialog
+            open={dialogMensaje}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={handleCloseDialog}
+            aria-labelledby="alert-dialog-slide-title"
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle id="alert-dialog-slide-title">Compra realizada</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
+                Felicidades! se registró su compra con id: {orderId}. En breve nos comunicaremos con usted.
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCloseDialog} color="primary">
+                Cerrar
+              </Button>
+            </DialogActions>
+          </Dialog>
+        )
     }
 
     const showForm = () => {
@@ -153,7 +202,9 @@ const ModalForm = ({open, handleClose, cart, total}) => {
 
     return (
         <>
-            {loading ? loader() : showForm()}
+            {form ? showForm(): null}
+            {loading ? loader() : null}
+            {dialogMensaje ? dialogUserSuccess(): null}
         </>
       )
 }
