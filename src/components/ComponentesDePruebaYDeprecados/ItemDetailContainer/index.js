@@ -1,8 +1,8 @@
 import React, { useState, useEffect} from 'react';
 import { useParams } from 'react-router';
-import Items from '../../assets/Items';
-import ItemDetail from '../ItemDetail';
-import Loading from '../Loading';
+import Items from '../../../assets/Items';
+import ItemDetail from '../../ItemDetail';
+import Loading from '../../Loading';
 
 const ItemDetailContainer = () => {
 

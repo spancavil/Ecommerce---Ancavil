@@ -29,7 +29,7 @@ const ItemDetail = ({item}) => {
                     <ItemCount stock ={item.stock} initial = {item.initial} onAdd={addHandler}></ItemCount>
                         :
                         <>
-                        <ModalItemAgregado/>
+                        <ModalItemAgregado/> {/*Un pequeño modal que se autoclosea*/}
                         <h5 className="card-title py-2">Cantidad agregada: {count}</h5>
                         <Link to='/cart'>
                             <button className='btn btn btn-outline-danger'>Ir al carrito</button>

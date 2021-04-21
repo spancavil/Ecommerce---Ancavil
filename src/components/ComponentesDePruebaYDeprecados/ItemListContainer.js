@@ -1,8 +1,8 @@
 import React, { useEffect, useState} from 'react';
-import ItemList from './ItemList';
+import ItemList from '../ItemList';
 //import ConsumerApi from './ConsumerApi';
-import Loading from './Loading';
-import Items from '../assets/Items';
+import Loading from '../Loading';
+import Items from '../../assets/Items';
 import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () => { //Hacemos un ItemListContainer utilizando una función flecha
