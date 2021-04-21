@@ -7,12 +7,11 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
 import emailjs from 'emailjs-com';
-import {getFirestore} from '../../firebase';
-import firebase from 'firebase/app';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import Slide from '@material-ui/core/Slide';
+import getOrders, {getFechaFirebase} from '../../services/orders';
 
 const useStyles = makeStyles((theme) => ({
     backdrop: {
@@ -67,8 +66,9 @@ const ModalForm = ({open, handleClose, cart, total}) => {
                             const price = cartItem.item.precio * cartItem.quantity;
                             return {id, title, price}})
         newOrderFireBase.total = total;
-        newOrderFireBase.fecha = firebase.firestore.Timestamp.fromDate(new Date())
+        newOrderFireBase.fecha = getFechaFirebase(); //Utilizamos el servicio para recuperar la fecha correspondiente.
 
+        //Seteamos al mensaje a enviar por email.
         ordenMailJS.message = `Comprador: ${comprador}, Teléfono: ${telefono}, email: ${email}, Pedido: 
                                 ${cart.map(cartItem=> {
                                     const title = cartItem.item.description;
@@ -76,16 +76,14 @@ const ModalForm = ({open, handleClose, cart, total}) => {
                                     const quantity = cartItem.quantity;
                                     return (`Descripcion: ${title} Precio: ${price} Cantidad: ${quantity}`)
                                 })},
-                                Total: ${total}`;
+                                Total: ${total}.`;
 
         //Observamos que se hayan generado correctamente los objetos a enviar
         console.log(newOrderFireBase);
         console.log (JSON.stringify(ordenMailJS));
 
-        //Conectamos con Firebase y traemos la collection de orders.
-        const db = getFirestore();
-        const orders = db.collection('orders');
-
+        //Conectamos con Firebase y traemos la collection de orders, utilizando el servicio correspondiente.
+        const orders = getOrders();
         orders.add(newOrderFireBase).then(({id})=>{
             console.log("Se agrego la orden con id:", id, " a la base de datos."); // SUCCESS
             setOrderId(id); //Seteamos un state con el valor del id de order.
@@ -130,7 +128,7 @@ const ModalForm = ({open, handleClose, cart, total}) => {
             <DialogTitle id="alert-dialog-slide-title">Compra realizada</DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
-                Felicidades! se registró su compra con id: {orderId}. En breve nos comunicaremos con usted.
+                Felicidades! se registró tu compra con id: {orderId}. En breve nos comunicaremos con vos.
               </DialogContentText>
             </DialogContent>
             <DialogActions>

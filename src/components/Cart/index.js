@@ -10,7 +10,7 @@ const Cart = () => {
 
     const {cart, removeItem} = useContext(CartContext);
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false); //Para abrir y cerrar el modal
 
     const handleClickOpen = () => {
         setOpen(true);

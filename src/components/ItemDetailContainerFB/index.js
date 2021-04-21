@@ -3,15 +3,7 @@ import { useParams } from 'react-router';
 //import Items from '../../assets/Items'; DEPRECATED
 import ItemDetail from '../ItemDetail';
 import Loading from '../Loading';
-
-import {getFirestore} from '../../firebase'
-
-const getItems = (itemId) => {
-    const db = getFirestore();
-    const itemsCollection = db.collection('Items'); //Items con MAYUSCULA porque ASI ESTA EN FIREBASE
-    const item = itemsCollection.doc(itemId);
-    return item.get();
-}
+import {getItem} from '../../services/item.js'
 
 const ItemDetailContainer = () => {
 
@@ -19,10 +11,8 @@ const ItemDetailContainer = () => {
     const [item,setItem] = useState([])
     
     useEffect(() => {
-        //console.log(itemId);
-        getItems(itemId) //Es una promesa por eso despues tiene un then
+        getItem(itemId) // Consultamos a la db de firebase, para que traiga el item que corresponde a ese id.
         .then((res)=>{
-            //console.log("Existe??", res.exists);
             if (res.exists){
                 setItem(res.data())
             }

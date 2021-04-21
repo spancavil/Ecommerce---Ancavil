@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import ItemCount from '../ItemCount';
 import {Link} from 'react-router-dom';
 import {CartContext} from '../../context/cartContext'
+import ModalItemAgregado from '../ModalItemAgregado';
 
 const ItemDetail = ({item}) => {
     
@@ -28,6 +29,7 @@ const ItemDetail = ({item}) => {
                     <ItemCount stock ={item.stock} initial = {item.initial} onAdd={addHandler}></ItemCount>
                         :
                         <>
+                        <ModalItemAgregado/>
                         <h5 className="card-title py-2">Cantidad agregada: {count}</h5>
                         <Link to='/cart'>
                             <button className='btn btn btn-outline-danger'>Ir al carrito</button>

@@ -3,30 +3,13 @@ import { useParams } from 'react-router';
 //import Items from '../../assets/Items'; DEPRECATED
 import ItemList from '../ItemList';
 import Loading from '../Loading';
-import {getFirestore} from '../../firebase'
+import getItems, {getItemsFilter} from '../../services/item' 
 
 const ItemListContainerFB = () => {
 
     const {categoriaProducto}= useParams() //obtenemos la categoría (en caso de que haya categoría, sino es undefined)
 
     const [items, setItems] = useState([]); //Necesitamos que los item se alojen en un estado
-    //Si los declaramos como constantes fuera del estado, sólo dura la ejecución del bloque y luego se borran, por eso
-    //es pertinente ponerlo en un estado.
-    const getItemFilter= (categoriaProducto) => { //Filtramos items según la categoría
-        const db = getFirestore();
-        const itemsCollection = db.collection('Items');
-        //console.log("Filtrado.")
-        return itemsCollection
-                        .where('categoria', '==', categoriaProducto)
-                        .get();
-    }
-
-    const getItem = () => { //Si no hay categoría, traemos toda la db
-        const db = getFirestore();
-        const itemsCollection = db.collection('Items');
-        //console.log ("No Filter.");
-        return itemsCollection.get();
-    }
 
     const setItemsFn = (response) => {
             if (response.size>0){
@@ -49,11 +32,11 @@ const ItemListContainerFB = () => {
     }
 
     useEffect (()=>{
-        if (categoriaProducto !== undefined){ //Primero vemos si hay o no categoriaProducto
-            getItemFilter(categoriaProducto) //Cargamos la db filtrando categoria
+        if (categoriaProducto !== undefined){ //Primero vemos si hay o no categoriaProducto segun params
+            getItemsFilter(categoriaProducto) //Cargamos la db filtrando categoria, usando el service correspondiente
                 .then((res) => setItemsFn(res))
         } else {
-            getItem() //Cargo la db entera
+            getItems() //Cargo la db entera, usando el service correspondiente
                 .then((res)=> setItemsFn(res))
         }
     }, [categoriaProducto]);
