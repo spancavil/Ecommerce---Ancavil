@@ -5,7 +5,7 @@ Este es un proyecto de e-commerce de rascadores para gatos utilizando React.
 Navegación: 
 ![alt text][navegacion]
 
-[navegacion]: /gif/Presentacion.gif "Navegación"
+[navegacion]: /public/gif/Presentacion.gif "Navegación"
 
 ## Librerías utilizadas
 
@@ -15,6 +15,6 @@ Navegación:
 
 * Firebase: Uso de firebase para el manejo de la base de datos de productos y de órdenes generadas.
 
-#### Sitio deployed
+#### Sitio deployed:
 
 [El gatito azul en netlify](elgatitoazul.netlify.app)
