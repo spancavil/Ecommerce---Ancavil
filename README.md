@@ -2,8 +2,8 @@
 
 Este es un proyecto de e-commerce de rascadores para gatos utilizando React.
 
-Navegación: 
-![alt text][navegacion]
+ 
+![Navigation][navegacion]
 
 [navegacion]: /public/gif/Presentacion.gif "Navegación"
 
